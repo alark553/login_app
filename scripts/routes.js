@@ -7,6 +7,15 @@ app.config(['$routeProvider', function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'views/welcome.html',
+      resolve: {
+        userInfo: ['$location', 'UserService', function($location, UserService) {
+          if (UserService.isLoggedIn) {
+            $location.path('/profile/');
+          } else {
+            $location.path('/');
+          }
+        }]
+      }
     })
     .when('/login/', {
       templateUrl: 'views/login.html',
@@ -42,10 +51,9 @@ app.config(['$routeProvider', function($routeProvider, $locationProvider) {
 app.run(['$rootScope', '$location', '$templateCache', 'UserService',
   function($rootScope, $location, $templateCache, UserService) {
     $rootScope.$on('$locationChangeStart', function() {
-      if(UserService.session()){
+      if (UserService.session()) {
         UserService.isLoggedIn = true;
-      }
-      else{
+      } else {
         UserService.isLoggedIn = false;
       }
     });

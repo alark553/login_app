@@ -24,10 +24,10 @@ app.factory('UserService', ['$http', '$q', '$rootScope', '$location', 'USERDATA'
             'success': true,
             'errorMessage': null
           }
-          deferred.resolve(response);
           service.setCredentials(response.data);
           $rootScope.$emit('userLoggedInStateChanged');
           angular.element('.loader-blocker').hide();
+          deferred.resolve(response);
         }, 2000);
       } else {
         setTimeout(function() {
@@ -45,13 +45,13 @@ app.factory('UserService', ['$http', '$q', '$rootScope', '$location', 'USERDATA'
     'setCredentials': function(data) {
       service.isLoggedIn = true;
       localStorage.setItem('userdata', JSON.stringify(data));
-      $location.path('/profile/')
+      $location.path('/profile/');
     },
     'clearCredentials': function() {
       localStorage.removeItem('userdata');
       service.isLoggedIn = false;
     },
-    logout: function() {
+    'logout': function() {
       angular.element('.loader-blocker p').text('Logging out');
       angular.element('.loader-blocker').show();
       service.isLoggedIn = false;
