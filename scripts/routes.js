@@ -15,19 +15,19 @@ app.config(['$routeProvider', function($routeProvider, $locationProvider) {
       resolve: {
         userInfo: ['$location', 'UserService', function($location, UserService) {
           if (UserService.isLoggedIn) {
-            $location.path('/private/');
+            $location.path('/profile/');
           } else {
             $location.path('/login/');
           }
         }]
       }
     })
-    .when('/private/', {
+    .when('/profile/', {
       templateUrl: 'views/profile.html',
       resolve: {
         userInfo: ['$location', 'UserService', function($location, UserService) {
           if (UserService.isLoggedIn) {
-            $location.path('/private/');
+            $location.path('/profile/');
           } else {
             $location.path('/');
           }

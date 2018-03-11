@@ -45,7 +45,7 @@ app.factory('UserService', ['$http', '$q', '$rootScope', '$location', 'USERDATA'
     'setCredentials': function(data) {
       service.isLoggedIn = true;
       localStorage.setItem('userdata', JSON.stringify(data));
-      $location.path('/private/')
+      $location.path('/profile/')
     },
     'clearCredentials': function() {
       localStorage.removeItem('userdata');

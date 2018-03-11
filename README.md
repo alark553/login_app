@@ -6,17 +6,20 @@ The application support following views:
 	3. A private view (visible to logged-in users only)
 
 ## Getting Started
-
-  1. Go to the project folder login_app
-  2. run bower install to install all dependencies related to project
+  1.Either download the repo or clone it using below command
+  ```
+  git clone https://github.com/alark553/login_app.git
+  ```   
+  2. Go to the project folder login_app
+  3. run bower install to install all dependencies related to project
   ```
   bower install
   ```   
-  3. Install http server npm install -g http-server
+  4. Install http server npm install -g http-server
   ```
   npm install -g http-server
   ```   
-  4. And then run http-server -o
+  5. And then run http-server -o
   ```
   http-server -o
   ```   
