@@ -1,23 +1,29 @@
 app.run(function($httpBackend) {
   $httpBackend.whenPOST('/api/authenticate/').respond(function(method, url, data) {
     var params = angular.fromJson(data);
+    var userExists = false;
+    var response = {};
     for (var i = 0; i < USERDATA.length; i++) {
       if (USERDATA[i].username == params.username && USERDATA[i].password == params.password) {
         var userdata = USERDATA[i];
-        var response = {
+        userExists = true;
+        response = {
           'data': userdata,
           'success': true,
           'errorMessage': null
         }
-        return [200, response, {}];
         break;
       } else {
-        var response = {
+        response = {
           'success': false,
           'errorMessage': 'Username/password is incorrect'
         }
-        return [400, response, {}];
       }
+    }
+    if (userExists) {
+      return [200, response, {}];
+    } else {
+      return [400, response, {}];
     }
   });
   $httpBackend.whenGET(/^\w+.*/).passThrough();
