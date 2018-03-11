@@ -32,11 +32,8 @@ The application support following views:
 
 ### Project flow
 
-  1. There is a welcome screenm where user is given link to login into site.
+  1. There is a welcome screen where user is given link to login into site.
   2. Then user can go to login page and enter the username and password, here we are using the USERDATA.js as mock data to login into site.
   3. After login user is redirected to profile page whcih is accessible to him only after login.
   4. and then user can logout from the logout icon to return aagin to login page.
 
-=======
-# login_app
-A simple Login logout workflow
