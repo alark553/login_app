@@ -37,3 +37,6 @@ The application support following views:
   3. After login user is redirected to profile page whcih is accessible to him only after login.
   4. and then user can logout from the logout icon to return aagin to login page.
 
+=======
+# login_app
+A simple Login logout workflow
