@@ -1,4 +1,4 @@
-app.factory('UserService', ['$http', '$q', '$rootScope', '$location', 'USERDATA', function($http, $q, $rootScope, $location, USERDATA) {
+app.factory('UserService', ['$http', '$q', '$rootScope', '$location', function($http, $q, $rootScope, $location) {
   var service = {
     isLoggedIn: false,
     session: function() {
@@ -11,35 +11,21 @@ app.factory('UserService', ['$http', '$q', '$rootScope', '$location', 'USERDATA'
       var deferred = $q.defer();
       angular.element('.loader-blocker p').text('Logging in');
       angular.element('.loader-blocker').show();
-      for (var i = 0; i < USERDATA.length; i++) {
-        if (USERDATA[i].username == data.username && data.password == USERDATA[i].password) {
-          var userdata = USERDATA[i];
-          break;
-        }
-      }
-      if (!service.isEmptyObject(userdata)) {
-        setTimeout(function() {
-          var response = {
-            'data': userdata,
-            'success': true,
-            'errorMessage': null
-          }
-          service.setCredentials(response.data);
+      $http({
+          url: '/api/authenticate/',
+          method: 'POST',
+          data: data,
+        })
+        .then(function(response) {
+          service.setCredentials(response.data.data);
           $rootScope.$emit('userLoggedInStateChanged');
           angular.element('.loader-blocker').hide();
           deferred.resolve(response);
-        }, 2000);
-      } else {
-        setTimeout(function() {
-          var response = {
-            'success': false,
-            'errorMessage': 'Username/password is incorrect'
-          }
+        }).catch(function(response) {
           deferred.reject(response);
-          service.notify(response.errorMessage);
+          service.notify(response.data.errorMessage);
           angular.element('.loader-blocker').hide();
-        }, 2000);
-      }
+        });
       return deferred.promise;
     },
     'setCredentials': function(data) {

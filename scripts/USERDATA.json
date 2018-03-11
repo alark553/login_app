@@ -1,5 +1,4 @@
-app.constant('USERDATA', [
-{
+USERDATA = [{
 	"id": 0,
 	"first_name": "Test",
 	"last_name": "Test",
@@ -7,7 +6,7 @@ app.constant('USERDATA', [
 	"gender": "Male",
 	"username": "test",
 	"password": "test"
-},{
+}, {
 	"id": 1,
 	"first_name": "Callean",
 	"last_name": "Berriball",
@@ -87,4 +86,4 @@ app.constant('USERDATA', [
 	"gender": "Female",
 	"username": "dpieche9",
 	"password": "81ooVwDAbOyn"
-}]);
+}];
