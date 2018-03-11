@@ -1,0 +1,12 @@
+<section class="main-wrapper">
+  <div class="container">
+    <div class="col-xs-12">
+      <a href="javascript:void(0);" ng-click="mc.logout()" class="float-right"><span class="sign-off-icon"><i class="fa fa-power-off"></i></span></a>
+    </div>
+    <div class="profile-section text-center">
+      <span class="profile-icon"><i class="fa fa-user-circle"></i></span>
+      <h2>{{ mc.userdata.first_name }} {{ mc.userdata.last_name }}</h2>
+      <p> <span class="float-left">Username : {{ mc.userdata.username }} </span>| <span class="float-right"> Gender : {{ mc.userdata.gender }}</span></p>
+    </div>
+  </div>
+</section>

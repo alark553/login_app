@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login/Logout workflow</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/web-fonts-with-css/css/fontawesome-all.min.css"/>
+    <link rel="stylesheet" href="bower_components/ng-notify/dist/ng-notify.min.css"/>
+    <link href="bower_components/angular-growl-v2/build/angular-growl.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css"/>
+  </head>
+  <body ng-app="app" ng-cloak ng-controller="MainCtrl as mc" id="login_app" class="ng-cloak">
+    <div ng-view=""></div>
+    <div class="loader-blocker">
+      <span class="loader-blocking-icon" class="text-center">
+        <i class="fa fa-cog fa-spin"></i>
+      </span>
+      <p>Operation in progress</p>
+    </div>
+    <div id="notif-msg">
+      <p>My notif msgag</p>
+    </div>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/ng-notify/dist/ng-notify.min.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/app-directive.js"></script>
+    <script type="text/javascript" src="scripts/routes.js"></script>
+    <script type="text/javascript" src="scripts/USERDATA.js"></script>
+    <script type="text/javascript" src="scripts/controllers/MainCtrl.js"></script>
+    <script type="text/javascript" src="scripts/controllers/LoginCtrl.js"></script>
+    <script type="text/javascript" src="scripts/services/UserService.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "login_app",
+  "authors": [
+    "aman_agrawal <amanagrawal.am@gmail.com>"
+  ],
+  "description": "A simple login/logout workflow",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "angular": "^1.6.9",
+    "angular-route": "^1.6.9",
+    "font-awesome": "^5.0.8",
+  },
+}
